@@ -4,7 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Gold Tennis Academy</title>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,63 +16,66 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     </head>
-    <body class="font-sans bg-page text-green flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
+    <body class="font-sans bg-page text-green min-h-screen">
+        <header class="fixed top-0 left-0 right-0 z-50 bg-page">
+            <div class="flex justify-center p-6 lg:p-8">
+                <div class="w-full lg:max-w-4xl max-w-[335px] text-sm">
+                    @if (Route::has('login'))
+                        <nav class="flex items-center justify-between gap-4">
+                            <div>
+                                <a href="/">
+                                    <img class="w-10 h-10 hover:scale-150 transition-all duration-300 ease-in-out" src="/favicon.png" alt="logo">
+                                </a>
+                            </div>
 
-            
+                            <div>
+                                <x-nav-link href="/lessons" :active="request()->is('lessons')">LESSONS</x-nav-link>
+                                <x-nav-link href="/about" :active="request()->is('about')">ABOUT</x-nav-link>
+                                <x-nav-link href="/contact" :active="request()->is('contact')">CONTACT</x-nav-link>
+                            </div>
 
-            @if (Route::has('login'))
-                <nav class="flex items-center justify-between gap-4">
-                    @auth
-                        <a
-                            href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                        >
-                            Dashboard
-                        </a>
-                    @else
-
-                        <div>
-                            <a href="/">
-                                <img src="C:\Users\Ariel\Herd\gold-tennis\public\favicon.png" alt="logo">
-                            </a>
-                        </div>
-
-                        <div>
-                            <x-nav-link href="/lessons">LESSONS</x-nav-link>
-                            <x-nav-link href="/about">ABOUT</x-nav-link>
-                            <x-nav-link href="/contact">CONTACT</x-nav-link>
-                        </div>
-
-                        <div class="">
-                            {{-- <a
-                                href="{{ route('login') }}"
-                                class="bg-green inline-block px-5 py-1.5 text-white transition duration-500 hover:bg-black rounded-lg text-sm leading-normal"
-                            >
-                                Log in
-                            </a> --}}
-
-                            <x-primary-button>
-                                BOOK NOW
-                            </x-primary-button>
-                        </div>
-                        
-
-                        @if (Route::has('register'))
-                            {{-- <a
-                                href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                                Register
-                            </a> --}}
-                        @endif
-                    @endauth
-                </nav>
-            @endif
+                            <div class="flex items-center gap-4">
+                                @auth
+                                    <!-- <x-primary-button href="{{ route('dashboard') }}">
+                                        DASHBOARD
+                                    </x-primary-button> -->
+                                    @if (Auth::user()->is_admin)
+                                        <x-primary-button href="{{ route('admin.dashboard') }}">
+                                            DASHBOARD
+                                        </x-primary-button>
+                                    
+                                    @elseif (!Auth::user()->is_admin)
+                                        <x-primary-button href="{{ route('dashboard') }}">
+                                            DASHBOARD
+                                        </x-primary-button>
+                                    @endif
+                                    
+                                    <!-- Logout Button -->
+                                    <form method="POST" action="{{ route('logout') }}" class="inline">
+                                        @csrf
+                                        <button type="submit" 
+                                                class="text-gray-600 hover:text-red-600 transition-colors duration-200 text-sm font-medium">
+                                            LOGOUT
+                                        </button>
+                                    </form>
+                                @else
+                                    <x-primary-button href="{{ route('register') }}">
+                                        BOOK NOW
+                                    </x-primary-button>
+                                @endauth
+                            </div>
+                        </nav>
+                    @endif
+                </div>
+            </div>
         </header>
-        <div class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
-            <main class="flex space-x-20 border border-green p-10">
-                {{ $slot }}
-            </main>
+
+        <div class="pt-32 lg:pt-40">
+            <div class="flex flex-col items-center p-6 lg:p-8">
+                <main class="">
+                    {{ $slot }}
+                </main>
+            </div>
         </div>
 
         @if (Route::has('login'))

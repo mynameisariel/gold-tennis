@@ -2,6 +2,12 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+        <div>
+            <h1 class="font-bold text-center my-2">
+                Create an account to book a lesson.
+            </h1>
+        </div>
+
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -44,9 +50,9 @@
                 {{ __('Already registered?') }}
             </a>
 
-            <x-primary-button class="ms-4">
+            <x-form-button class="ms-4">
                 {{ __('Register') }}
-            </x-primary-button>
+            </x-form-button>
         </div>
     </form>
 </x-guest-layout>
