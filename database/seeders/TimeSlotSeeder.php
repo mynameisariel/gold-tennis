@@ -24,7 +24,7 @@ class TimeSlotSeeder extends Seeder
             for ($i = 0; $i < 14; $i++) {
                 $date = $startDate->copy()->addDays($i);
                 
-                // Skip weekends for some lessons
+                // no weekend timslots for lessons
                 if ($lesson->id == 1 && $date->isWeekend()) {
                     continue;
                 }

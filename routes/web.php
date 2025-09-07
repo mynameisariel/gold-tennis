@@ -22,6 +22,9 @@ Route::get('/contact', [App\Http\Controllers\ContactController::class, 'show'])-
 Route::post('/contact/subscribe', [App\Http\Controllers\ContactController::class, 'subscribe'])->name('contact.subscribe');
 
 Route::get('/dashboard', function () {
+    if (auth()->user()->is_admin) {
+        return redirect()->route('admin.dashboard');
+    }
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 

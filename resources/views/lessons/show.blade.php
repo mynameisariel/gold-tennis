@@ -12,7 +12,7 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- Left Column - Lesson Details -->
+            <!-- lesson details -->
             <div>
                 <h1 class="text-3xl font-bold text-green mb-4">{{ $lesson->title }}</h1>
                 <img src="{{ $lesson->image }}" alt="{{ $lesson->title }}" class="w-full h-64 object-cover rounded-lg mb-4">

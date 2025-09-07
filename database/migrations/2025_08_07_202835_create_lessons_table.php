@@ -11,7 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lessons', function (Blueprint $table) {
+        if (!Schema::hasTable('lessons')) {
+            Schema::create('lessons', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->text('description');
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
+        }     
     }
 
     /**

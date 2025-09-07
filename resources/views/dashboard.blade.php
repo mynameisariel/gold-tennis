@@ -1,12 +1,12 @@
 <x-layout>
     <div class="">
         <main class="" style="min-height: 450px">
-            <div class="flex space-x-20 border border-green p-10">
-                <div class="flex flex-col">
+            <div class="flex flex-col lg:flex-row lg:space-x-20 border border-green p-4 md:p-10">
+                <div class="flex flex-col mb-8 lg:mb-0">
                     <!-- title -->
                     <div class="flex flex-col justify-between">
-                        <h1 class="font-bold text-8xl mb-5">Book a Lesson</h1>
-                        <h3 class="text-2xl text-green">Welcome back, <span class="text-gold">{{ Auth::user()->name }}.</span></h3>
+                        <h1 class="font-bold text-5xl md:text-6xl lg:text-8xl mb-5">Book a Lesson</h1>
+                        <h3 class="text-xl md:text-2xl text-green">Welcome back, <span class="text-gold">{{ Auth::user()->name }}.</span></h3>
                     </div>
                     <!-- content --> 
                     <div class="mt-auto">
@@ -22,7 +22,7 @@
                                             </div>
                                             <div class="ml-4">
                                                 <p class="text-sm font-medium text-gray-600">My Bookings</p>
-                                                <p class="text-2xl font-semibold text-gray-900">placeholder</p>
+                                                <p class="text-2xl font-semibold text-gray-900">{{ Auth::user()->bookings()->count() }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="https://placehold.co/400" alt="">
+                    <img src="https://placehold.co/400" alt="" class="w-full h-auto max-w-sm lg:max-w-md mx-auto">
                 </div>
             </div>
         </main>

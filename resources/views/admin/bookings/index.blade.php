@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="max-w-7xl mx-auto">
+    <div class="w-full">
         <div class="flex justify-between items-center mb-8">
             <h1 class="text-3xl font-bold">Manage Bookings</h1>
             <a href="{{ route('admin.dashboard') }}" 
@@ -20,7 +20,7 @@
             </div>
             
             @if($bookings->count() > 0)
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8">
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                             <tr>

@@ -7,11 +7,14 @@
                         <!-- title -->
                         <div class="flex flex-col justify-between">
                             <h1 class="font-bold text-8xl mb-5">Gold Tennis <br>Academy</h1>
-                            <h3 class="text-2xl text-green">Train bold. Play <span class="text-gold">gold.</span></h3>
+                            <h3 class="text-2xl text-green">Train bold. Play <span class="text-gold font-bold">gold.</span></h3>
                         </div>
                         <!-- button --> 
                         <div class="mt-auto">
-                            <a href="" class="block bg-gold text-4xl font-bold rounded-lg p-4 hover:bg-green hover:text-white transition duration-200">TUESDAY KIDS GROUP <br>SESSION - REGISTER NOW</a>
+                            <a href="/contact" class="block bg-gold text-5xl font-bold rounded-lg p-4 hover:bg-green hover:text-white transition duration-200">
+                                <p class="mb-2">SUBSCRIBE TO</p>
+                                <p>OUR NEWSLETTER</p>
+                            </a>
                         </div>
                     </div>
                     <div>
