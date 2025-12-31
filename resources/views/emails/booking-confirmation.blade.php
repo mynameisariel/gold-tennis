@@ -35,21 +35,21 @@
             
             <h3>What to Bring:</h3>
             <ul>
-                <li>🎾 Tennis racket (we can provide one if needed)</li>
-                <li>👟 Comfortable athletic shoes</li>
-                <li>💧 Water bottle</li>
-                <li>😊 Positive attitude and enthusiasm!</li>
+                <li>Tennis racket</li>
+                <li>Comfortable athletic shoes</li>
+                <li>Water bottle</li>
+                <li>Positive attitude and enthusiasm!</li>
             </ul>
             
             <h3>Location:</h3>
             <p>Gold Tennis Academy<br>
-            123 Tennis Court Drive<br>
-            City, State 12345</p>
+            4008 Kelly Farm Drive<br>
+            Ottawa, ON</p>
             
             <p><strong>Please arrive 10 minutes before your scheduled time.</strong></p>
             
             <p>If you need to cancel or reschedule, please contact us at least 24 hours in advance:</p>
-            <p><strong>Coach:</strong> <a href="mailto:coach@goldtennis.com">coach@goldtennis.com</a></p>
+            <p><strong>Coach:</strong> <a href="mailto:goldtennisacad@gmail.com">goldtennisacad@gmail.com</a></p>
             
             <p>See you on the court!</p>
             

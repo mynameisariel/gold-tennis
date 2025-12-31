@@ -29,7 +29,6 @@ class TimeSlotSeeder extends Seeder
                     continue;
                 }
                 
-                // Create multiple time slots per day
                 $times = [
                     ['09:00', '10:00'],
                     ['10:00', '11:00'],
