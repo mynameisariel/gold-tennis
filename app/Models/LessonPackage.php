@@ -25,11 +25,11 @@ class LessonPackage extends Model
         'is_active' => 'boolean',
     ];
 
-    public function user(): BelongsTo {
-        return $this->belongsTo(User::class);
+    public function lesson() {
+        return $this->hasMany(Lesson::class);
     }
 
-    public function lesson(): HasMany {
-        return $this->hasMany(Lesson::class);
+    public function userPackage() {
+        return $this->hasMany(UserPackage::class);
     }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LessonPackageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -13,6 +14,9 @@ Route::get('/', function () {
 Route::get('/lessons', [LessonController::class, 'index'])->name('lessons.index');
 Route::get('/lessons/{lesson}', [LessonController::class, 'show'])->name('lessons.show');
 Route::get('/lessons/{lesson}/time-slots', [LessonController::class, 'getTimeSlots'])->name('lessons.time-slots');
+
+// get method accepts 2 parameters - 1) string of endpoint, and then 2) list of associated controller, and method we are trying to reach inside controller
+Route::get('/lesson-packages', [LessonPackageController::class, 'index'])->name('lesson-packages.index');
 
 Route::get('/about', function () {
     return view('about');

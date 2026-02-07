@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\LessonPackage;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -39,6 +40,9 @@ class LessonPackageSeeder extends Seeder
             ]
         ];
 
+        foreach ($lessonPackages as $lessonPackage) {
+            LessonPackage::create($lessonPackage);
+        }
 
     }
 }
