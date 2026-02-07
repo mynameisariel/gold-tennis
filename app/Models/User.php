@@ -53,6 +53,10 @@ class User extends Authenticatable
         return $this->hasMany(Booking::class);
     }
 
+    public function lessonPackages() {
+        return $this->hasMany(LessonPackage::class);
+    }
+
     public function isAdmin()
     {
         return $this->is_admin;
