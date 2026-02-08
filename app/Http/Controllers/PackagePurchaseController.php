@@ -25,18 +25,22 @@ class PackagePurchaseController extends Controller
         ]);
 
         return redirect()->route('packages.show', $package)->with('success', 'Lesson package purchase requested!');
+        // return view('packages.show');
     }
 
-    public function show(UserPackage $package) {
-        if ($package->user_id !== Auth::id() && !Auth::user()->is_admin) {
-            abort(403);
-        }
+    // public function show(UserPackage $userPackage) {
+    //     // if ($userPackage->user_id !== Auth::id() && !Auth::user()->is_admin) {
+    //     //     abort(403);
+    //     // }
+    //     dd($userPackage);
 
-        return view('packages.show', compact('package'));
-    }
+    //     return view('packages.show', compact('userPackage'));
+    //     // return 'this is the packages.show page';
+    // }
 
     public function index() {
         $packages = Auth::user()->userPackages()->orderBy('created_at', 'desc')->get();
-        return view('packages.index', compact('packages'));
+        // return view('packages.index', compact('packages'));
+        return 'package purchase index';
     }
 }

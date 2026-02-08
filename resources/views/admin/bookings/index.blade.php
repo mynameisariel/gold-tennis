@@ -20,109 +20,108 @@
             </div>
             
             @if($bookings->count() > 0)
-                <div class="overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
+                {{-- <div class="overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8"> --}}
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Customer
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Lesson
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Date & Time
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Status
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Booked On
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        @foreach($bookings as $booking)
                             <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Customer
-                                </th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Lesson
-                                </th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Date & Time
-                                </th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Status
-                                </th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Booked On
-                                </th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Actions
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                            @foreach($bookings as $booking)
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div>
-                                            <div class="text-sm font-medium text-gray-900">{{ $booking->user->name }}</div>
-                                            <div class="text-sm text-gray-500">{{ $booking->user->email }}</div>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div>
+                                        <div class="text-sm font-medium text-gray-900">{{ $booking->user->name }}</div>
+                                        <div class="text-sm text-gray-500">{{ $booking->user->email }}</div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div>
+                                        <div class="text-sm font-medium text-gray-900">{{ $booking->timeSlot->lesson->title }}</div>
+                                        <div class="text-sm text-gray-500">${{ number_format($booking->timeSlot->lesson->price, 2) }}</div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div>
+                                        <div class="text-sm font-medium text-gray-900">
+                                            {{ $booking->timeSlot->date->format('M j, Y') }}
                                         </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div>
-                                            <div class="text-sm font-medium text-gray-900">{{ $booking->timeSlot->lesson->title }}</div>
-                                            <div class="text-sm text-gray-500">${{ number_format($booking->timeSlot->lesson->price, 2) }}</div>
+                                        <div class="text-sm text-gray-500">
+                                            {{ $booking->timeSlot->start_time->format('g:i A') }} - {{ $booking->timeSlot->end_time->format('g:i A') }}
                                         </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div>
-                                            <div class="text-sm font-medium text-gray-900">
-                                                {{ $booking->timeSlot->date->format('M j, Y') }}
-                                            </div>
-                                            <div class="text-sm text-gray-500">
-                                                {{ $booking->timeSlot->start_time->format('g:i A') }} - {{ $booking->timeSlot->end_time->format('g:i A') }}
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        @if($booking->status === 'confirmed')
-                                            <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
-                                                Confirmed
-                                            </span>
-                                        @elseif($booking->status === 'pending')
-                                            <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                                Pending
-                                            </span>
-                                        @else
-                                            <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800">
-                                                Cancelled
-                                            </span>
-                                        @endif
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{ $booking->created_at->format('M j, Y g:i A') }}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        <div class="flex space-x-2">
-                                            @if($booking->status === 'pending')
-                                                <form action="{{ route('admin.bookings.confirm', $booking) }}" method="POST" class="inline">
-                                                    @csrf
-                                                    @method('PATCH')
-                                                    <button type="submit" class="text-green-600 hover:text-green-900">
-                                                        Confirm
-                                                    </button>
-                                                </form>
-                                            @endif
-                                            
-                                            @if($booking->status !== 'cancelled')
-                                                <form action="{{ route('admin.bookings.cancel', $booking) }}" method="POST" class="inline">
-                                                    @csrf
-                                                    @method('PATCH')
-                                                    <button type="submit" class="text-red-600 hover:text-red-900" 
-                                                            onclick="return confirm('Are you sure you want to cancel this booking?')">
-                                                        Cancel
-                                                    </button>
-                                                </form>
-                                            @endif
-                                            
-                                            @if($booking->notes)
-                                                <button onclick="showNotes('{{ $booking->notes }}')" 
-                                                        class="text-blue-600 hover:text-blue-900">
-                                                    Notes
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    @if($booking->status === 'confirmed')
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
+                                            Confirmed
+                                        </span>
+                                    @elseif($booking->status === 'pending')
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                            Pending
+                                        </span>
+                                    @else
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800">
+                                            Cancelled
+                                        </span>
+                                    @endif
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    {{ $booking->created_at->format('M j, Y g:i A') }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <div class="flex space-x-2">
+                                        @if($booking->status === 'pending')
+                                            <form action="{{ route('admin.bookings.confirm', $booking) }}" method="POST" class="inline">
+                                                @csrf
+                                                @method('PATCH')
+                                                <button type="submit" class="text-green-600 hover:text-green-900">
+                                                    Confirm
                                                 </button>
-                                            @endif
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                                            </form>
+                                        @endif
+                                        
+                                        @if($booking->status !== 'cancelled')
+                                            <form action="{{ route('admin.bookings.cancel', $booking) }}" method="POST" class="inline">
+                                                @csrf
+                                                @method('PATCH')
+                                                <button type="submit" class="text-red-600 hover:text-red-900" 
+                                                        onclick="return confirm('Are you sure you want to cancel this booking?')">
+                                                    Cancel
+                                                </button>
+                                            </form>
+                                        @endif
+                                        
+                                        @if($booking->notes)
+                                            <button onclick="showNotes('{{ $booking->notes }}')" 
+                                                    class="text-blue-600 hover:text-blue-900">
+                                                Notes
+                                            </button>
+                                        @endif
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
                 
                 <!-- Pagination -->
                 <div class="px-6 py-4 border-t border-gray-200">

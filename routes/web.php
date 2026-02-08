@@ -49,7 +49,7 @@ Route::middleware('auth')->group(function () {
     // lesson packages routes
     Route::post('/packages', [PackagePurchaseController::class, 'store'])->name('packages.store');
     Route::get('/packages', [PackagePurchaseController::class, 'index'])->name('packages.index');
-    Route::get('/packages/{package}', [PackagePurchaseController::class, 'show'])->name('packages.show');
+    Route::get('/packages/{userPackage}', [PackagePurchaseController::class, 'show'])->name('packages.show');
     
     // Admin routes
     Route::prefix('admin')->name('admin.')->group(function () {

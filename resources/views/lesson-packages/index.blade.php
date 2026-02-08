@@ -16,12 +16,12 @@
                         <h2 class="text-xl font-bold mb-2">{{ $lessonPackage->title }}</h2>
                         <p class="text-gray-600 mb-4">{{ $lessonPackage->description }}</p>
                         <div class="flex justify-between items-center mb-4">
-                            <span class="text-sm text-gray-500">{{ $lessonPackage->duration_minutes }} minutes</span>
+                            <span class="text-sm text-gray-500">{{ $lessonPackage->number_of_lessons }} lessons</span>
                             <span class="text-lg font-bold text-green">${{ number_format($lessonPackage->price, 2) }}</span>
                         </div>
-                        <a href="{{ route('packages.show', $lessonPackage) }}" 
+                        <a href="{{ route('lesson-packages.show', $lessonPackage->id) }}" 
                            class="block w-full bg-green text-white text-center py-2 px-4 rounded-lg hover:bg-green-700 transition duration-200">
-                            Book Now
+                            Purchase Now
                         </a>
                     </div>
                 </div>

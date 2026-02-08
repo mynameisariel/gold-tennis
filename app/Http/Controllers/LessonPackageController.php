@@ -11,7 +11,7 @@ class LessonPackageController extends Controller
     public function index() {
         $lessonPackages = LessonPackage::where('is_active', true)->get();
         // return view('lesson-packages', compact('lessonPackages'));
-        return view('packages.index', compact('lessonPackages'));
+        return view('lesson-packages.index', compact('lessonPackages'));
     }
 
     public function show(LessonPackage $lessonPackage) {
@@ -26,6 +26,7 @@ class LessonPackageController extends Controller
         //     ->get();
 
         // return view('lesson-packages.show', compact('lessonPackages', 'timeSlots', 'selectedDate'));
-        return 'lesson packages show page';
+        return view('lesson-packages.show', compact('lessonPackage'));
+        // return view('lesson-packages.show');
     }
 }
