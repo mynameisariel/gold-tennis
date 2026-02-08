@@ -5,6 +5,7 @@ use App\Http\Controllers\LessonController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LessonPackageController;
+use App\Http\Controllers\PackagePurchaseController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,6 +18,7 @@ Route::get('/lessons/{lesson}/time-slots', [LessonController::class, 'getTimeSlo
 
 // get method accepts 2 parameters - 1) string of endpoint, and then 2) list of associated controller, and method we are trying to reach inside controller
 Route::get('/lesson-packages', [LessonPackageController::class, 'index'])->name('lesson-packages.index');
+Route::get('/lesson-packages/{lessonPackage}', [LessonPackageController::class, 'show'])->name('lesson-packages.show');
 
 Route::get('/about', function () {
     return view('about');
@@ -25,6 +27,7 @@ Route::get('/about', function () {
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'show'])->name('contact');
 Route::post('/contact/subscribe', [App\Http\Controllers\ContactController::class, 'subscribe'])->name('contact.subscribe');
 
+// user routes
 Route::get('/dashboard', function () {
     if (auth()->user()->is_admin) {
         return redirect()->route('admin.dashboard');
@@ -41,7 +44,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
     Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
     Route::get('/bookings/{booking}', [BookingController::class, 'show'])->name('bookings.show');
-    Route::patch('/bookings/{booking}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
+    Route::patch('/bookings/{booking}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel'); 
+
+    // lesson packages routes
+    Route::post('/packages', [PackagePurchaseController::class, 'store'])->name('packages.store');
+    Route::get('/packages', [PackagePurchaseController::class, 'index'])->name('packages.index');
+    Route::get('/packages/{package}', [PackagePurchaseController::class, 'show'])->name('packages.show');
     
     // Admin routes
     Route::prefix('admin')->name('admin.')->group(function () {

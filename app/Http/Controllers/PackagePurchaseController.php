@@ -36,7 +36,7 @@ class PackagePurchaseController extends Controller
     }
 
     public function index() {
-        $bookings = Auth::user()->userPackages()->orderBy('created_at', 'desc')->get();
+        $packages = Auth::user()->userPackages()->orderBy('created_at', 'desc')->get();
         return view('packages.index', compact('packages'));
     }
 }

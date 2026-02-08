@@ -1,6 +1,8 @@
 <x-layout>
     <div class="max-w-6xl mx-auto">
         <x-heading>Tennis Lessons</x-heading>
+
+        <x-primary-button href="{{ route('lesson-packages.index') }}">Save up to 30% by purchasing a LESSON PACKAGE</x-primary-button>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($lessons as $lesson)
