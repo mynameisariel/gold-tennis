@@ -29,7 +29,7 @@ class LessonPackage extends Model
         return $this->hasMany(Lesson::class);
     }
 
-    public function userPackage() {
+    public function userPackages() {
         return $this->hasMany(UserPackage::class);
     }
 }

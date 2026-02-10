@@ -11,7 +11,8 @@
         <div class="bg-white rounded-lg shadow p-6">
             <div class="mb-4">
                 <div class="text-sm text-gray-500">Lesson Package</div>
-                <div class="font-semibold">{{ $userPackage->title }}</div>
+                {{-- $userPackage has relationship method lessonPackage where we know it belongs to LessonPackage class --> it figures out the foreign key is lesson_package_id and runs a query to gen the lesson package titles where the id is specified --}}
+                <div class="font-semibold">{{ $userPackage->lessonPackage->title }}</div>
             </div>
 
             <div class="mb-4">
