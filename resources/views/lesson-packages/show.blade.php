@@ -48,7 +48,7 @@
                 </div> --}}
 
                 <!-- Booking Form -->
-                <form id="bookingForm" action="{{ route('packages.store') }}" method="POST" class="mt-6">
+                <form id="bookingForm" action="{{ route('lesson-packages.purchase', $lessonPackage) }}" method="POST" class="mt-6">
                     @csrf
                     <textarea name="notes" placeholder="Additional notes (optional)" 
                               class="w-full px-3 py-2 border rounded-lg mb-4" rows="3"></textarea>

@@ -19,6 +19,8 @@ Route::get('/lessons/{lesson}/time-slots', [LessonController::class, 'getTimeSlo
 // get method accepts 2 parameters - 1) string of endpoint, and then 2) list of associated controller, and method we are trying to reach inside controller
 Route::get('/lesson-packages', [LessonPackageController::class, 'index'])->name('lesson-packages.index');
 Route::get('/lesson-packages/{lessonPackage}', [LessonPackageController::class, 'show'])->name('lesson-packages.show');
+Route::post('/lesson-packages/{lessonPackage}/purchase', [PackagePurchaseController::class, 'store'])->name('lesson-packages.purchase');
+
 
 // other routes
 Route::get('/about', function () {
