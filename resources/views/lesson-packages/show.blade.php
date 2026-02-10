@@ -22,13 +22,13 @@
             <!-- Right Column - Booking Interface -->
             <div class="bg-white rounded-lg shadow-lg p-6">
                 <!-- Repeat Option -->
-                <div class="mb-6">
-                    {{-- <label class="flex items-center gap-2 mb-2">
+                {{-- <div class="mb-6">
+                    <label class="flex items-center gap-2 mb-2">
                         <input type="checkbox" id="repeat" class="rounded">
                         <span>Repeat</span>
-                    </label> --}}
+                    </label>
                     <input type="text" placeholder="Enter repeat pattern..." class="w-full px-3 py-2 border rounded-lg" disabled>
-                </div>
+                </div> --}}
 
                 <!-- Time Slots -->
                 {{-- <div>
@@ -50,13 +50,12 @@
                 <!-- Booking Form -->
                 <form id="bookingForm" action="{{ route('packages.store') }}" method="POST" class="mt-6">
                     @csrf
-                    <input type="hidden" name="time_slot_id" id="selectedTimeSlot">
                     <textarea name="notes" placeholder="Additional notes (optional)" 
                               class="w-full px-3 py-2 border rounded-lg mb-4" rows="3"></textarea>
                     <button type="submit" 
                             class="w-full bg-green text-white py-3 px-4 rounded-lg hover:bg-green-700 transition duration-200 disabled:opacity-50"
                             >
-                        Confirm Booking
+                        Confirm Package Purchase
                     </button>
                 </form>
             </div>

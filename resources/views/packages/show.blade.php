@@ -115,7 +115,7 @@
                     <button type="submit" 
                             class="w-full bg-green text-white py-3 px-4 rounded-lg hover:bg-green-700 transition duration-200 disabled:opacity-50"
                             disabled>
-                        Confirm Booking
+                        Confirm Package Purchase
                     </button>
                 </form>
             </div>

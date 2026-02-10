@@ -20,6 +20,7 @@ Route::get('/lessons/{lesson}/time-slots', [LessonController::class, 'getTimeSlo
 Route::get('/lesson-packages', [LessonPackageController::class, 'index'])->name('lesson-packages.index');
 Route::get('/lesson-packages/{lessonPackage}', [LessonPackageController::class, 'show'])->name('lesson-packages.show');
 
+// other routes
 Route::get('/about', function () {
     return view('about');
 });
@@ -46,7 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/bookings/{booking}', [BookingController::class, 'show'])->name('bookings.show');
     Route::patch('/bookings/{booking}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel'); 
 
-    // lesson packages routes
+    // user packages routes
     Route::post('/packages', [PackagePurchaseController::class, 'store'])->name('packages.store');
     Route::get('/packages', [PackagePurchaseController::class, 'index'])->name('packages.index');
     Route::get('/packages/{userPackage}', [PackagePurchaseController::class, 'show'])->name('packages.show');
