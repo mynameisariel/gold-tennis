@@ -25,7 +25,7 @@ class UserPackage extends Model
     }
 
     public function lessonPackage() {
-        return $this->hasOne(LessonPackage::class);
+        return $this->belongsTo(LessonPackage::class);
     }
     
     public function scopeConfirmed($query)
