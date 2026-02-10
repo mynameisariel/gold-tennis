@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('user_packages', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); 
+            $table->string('title');
+            $table->integer('number_of_lessons')->default(5);
+            $table->enum('status', ['confirmed', 'pending', 'cancelled'])->default('pending');
+            $table->text('notes')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

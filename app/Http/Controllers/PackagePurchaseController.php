@@ -17,6 +17,11 @@ class PackagePurchaseController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            // 'time_slot_id' => 'required|exists:time_slots,id',
+            'notes' => 'nullable|string|max:500'
+        ]);
+
         $package = UserPackage::create([
             'user_id' => Auth::id(),
             'lesson_package_id' => $request->lesson_package_id,
