@@ -1,11 +1,21 @@
 <x-layout>
+    <div class="flex justify-between items-center">
+        <a href="{{ route('admin.lessons.time-slots', $prevLesson) }}" 
+            class="bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+            Previous Lesson
+        </a>
+        <a href="{{ route('admin.lessons.time-slots', $nextLesson) }}" 
+            class="bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+            Next Lesson
+        </a>
+    </div>
     <div class="max-w-7xl mx-auto">
         <div class="flex justify-between items-center mb-8">
             <div>
                 <h1 class="text-3xl font-bold">Time Slots for {{ $lesson->title }}</h1>
                 <p class="text-gray-600 mt-2">Manage available time slots for this lesson</p>
             </div>
-            <div class="flex space-x-4">
+            <div class="justify-between items-center space-x-4">
                 <a href="{{ route('admin.time-slots.create', $lesson) }}" 
                    class="bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
                     Add Time Slots

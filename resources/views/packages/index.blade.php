@@ -36,16 +36,9 @@
                                     {{ ucfirst($userPackage->status) }}
                                 </span>
                             </td>
-                            {{-- <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex gap-3">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex gap-3">
                                 <a href="{{ route('packages.show', $userPackage) }}" class="text-blue-600 hover:text-blue-800">View</a>
-                                @if($userPackage->status !== 'cancelled')
-                                    <form method="POST" action="{{ route('userPackages.cancel', $userPackage) }}">
-                                        @csrf
-                                        @method('PATCH')
-                                        <button type="submit" class="text-red-600 hover:text-red-800">Cancel</button>
-                                    </form>
-                                @endif
-                            </td> --}}
+                            </td>
                         </tr>
                     @empty
                         <tr>

@@ -60,7 +60,19 @@ class AdminController extends Controller
     public function timeSlots(Lesson $lesson)
     {
         $timeSlots = $lesson->timeSlots()->orderBy('date')->orderBy('start_time')->get();
-        return view('admin.time-slots.index', compact('lesson', 'timeSlots'));
+
+        $nextLesson = Lesson::where('id', '>', $lesson->id)->orderBy('id')->first();
+
+        $prevLesson = Lesson::where('id', '<', $lesson->id)->orderBy('id', 'desc')->first();
+
+        if (!$nextLesson) {
+            $nextLesson = Lesson::orderBy('id')->first();
+        }
+        if (!$prevLesson) {
+            $prevLesson = Lesson::orderBy('id', 'desc')->first();
+        }
+
+        return view('admin.time-slots.index', compact('lesson', 'timeSlots', 'nextLesson', 'prevLesson'));
     }
 
     public function createTimeSlot(Lesson $lesson)
@@ -131,6 +143,18 @@ class AdminController extends Controller
         return back()->with('success', 'Time slot ' . ($timeSlot->is_available ? 'enabled' : 'disabled') . ' successfully!');
     }
 
+    public function timeSlotsIndex()
+    {
+        $firstLesson = Lesson::orderBy('id')->first();
+
+        if (!$firstLesson) {
+            return redirect()->route('admin.lessons.index')
+                ->withErrors(['error' => 'No lessons found. Create a lesson first.']);
+        }
+
+        return redirect()->route('admin.lessons.time-slots', $firstLesson);
+    }
+
     public function destroyTimeSlot(TimeSlot $timeSlot)
     {
         // Check if the time slot has any bookings
@@ -160,7 +184,7 @@ class AdminController extends Controller
             Mail::to($booking->user->email)->send(new BookingConfirmation($booking));
         } catch (\Exception $e) {
             // Log the error but don't fail the confirmation
-            \Log::error('Failed to send booking confirmation email: ' . $e->getMessage());
+            Log::error('Failed to send booking confirmation email: ' . $e->getMessage());
         }
         
         return back()->with('success', 'Booking confirmed successfully! Confirmation email sent to user.');

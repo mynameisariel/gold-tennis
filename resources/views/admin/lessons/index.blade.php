@@ -2,10 +2,16 @@
     <div class="max-w-7xl mx-auto">
         <div class="flex justify-between items-center mb-8">
             <h1 class="text-3xl font-bold">Manage Lessons</h1>
-            <a href="{{ route('admin.lessons.create') }}" 
-               class="bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
-                Add New Lesson
-            </a>
+            <div class="justify-between items-center space-x-4">
+                <a href="{{ route('admin.dashboard') }}" 
+                class="text-gray-600 hover:text-gray-900">
+                    ← Back to Dashboard
+                </a>
+                <a href="{{ route('admin.lessons.create') }}" 
+                class="bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+                    Add New Lesson
+                </a>
+            </div>
         </div>
 
         @if(session('success'))

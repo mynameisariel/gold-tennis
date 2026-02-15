@@ -60,6 +60,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/lessons', [AdminController::class, 'lessons'])->name('lessons.index');
         Route::get('/lessons/create', [AdminController::class, 'createLesson'])->name('lessons.create');
         Route::post('/lessons', [AdminController::class, 'storeLesson'])->name('lessons.store');
+        Route::get('/timeslots', [AdminController::class, 'timeSlotsIndex'])->name('time-slots.index');
         Route::get('/lessons/{lesson}/time-slots', [AdminController::class, 'timeSlots'])->name('lessons.time-slots');
         Route::get('/lessons/{lesson}/time-slots/create', [AdminController::class, 'createTimeSlot'])->name('time-slots.create');
         Route::post('/lessons/{lesson}/time-slots', [AdminController::class, 'storeTimeSlot'])->name('time-slots.store');
