@@ -69,6 +69,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/bookings', [AdminController::class, 'bookings'])->name('bookings.index');
         Route::patch('/bookings/{booking}/confirm', [AdminController::class, 'confirmBooking'])->name('bookings.confirm');
         Route::patch('/bookings/{booking}/cancel', [AdminController::class, 'cancelBooking'])->name('bookings.cancel');
+        Route::get('/packages', [AdminController::class, 'packages'])->name('packages.index');
     });
 });
 

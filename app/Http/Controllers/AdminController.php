@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\BookingConfirmation;
+use App\Models\LessonPackage;
+use App\Models\UserPackage;
 
 class AdminController extends Controller
 {
@@ -164,6 +166,12 @@ class AdminController extends Controller
 
         $timeSlot->delete();
         return back()->with('success', 'Time slot deleted successfully!');
+    }
+
+    public function packages() {
+        $packages = UserPackage::with(['user'])->orderBy('created_at', 'desc')->paginate(20);
+
+        return view('admin.packages.index', compact('packages'));
     }
 
     public function bookings()

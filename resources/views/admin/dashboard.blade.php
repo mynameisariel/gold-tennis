@@ -68,12 +68,19 @@
         <!-- actions -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-lg font-semibold mb-4">Manage Lessons</h3>
-                <p class="text-gray-600 mb-4">Create and manage tennis lesson types and pricing.</p>
-                <a href="{{ route('admin.lessons.index') }}" 
-                   class="inline-block bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
-                    View Lessons
-                </a>
+                <h3 class="text-lg font-semibold mb-4">Manage & Packages</h3>
+                <p class="text-gray-600 mb-4">Create and manage tennis lesson types, packages, and pricing.</p>
+                <div class="flex justify-left space-x-4">
+                    <a href="{{ route('admin.lessons.index') }}" 
+                    class="inline-block bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+                        View Lessons
+                    </a>
+                    <a href="{{ route('admin.packages.index') }}" 
+                    class="inline-block bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+                        View Packages
+                    </a>
+                </div>
+                
             </div>
 
             <div class="bg-white rounded-lg shadow-lg p-6">
