@@ -1,12 +1,12 @@
 <x-layout>
-    <div class="flex justify-between items-center">
+    <div class="flex justify-between items-center mb-5">
         <a href="{{ route('admin.lessons.time-slots', $prevLesson) }}" 
-            class="bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
-            Previous Lesson
+            class="bg-gold px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+            ◀   Previous Lesson
         </a>
         <a href="{{ route('admin.lessons.time-slots', $nextLesson) }}" 
-            class="bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
-            Next Lesson
+            class="bg-gold px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+            Next Lesson     ▶
         </a>
     </div>
     <div class="max-w-7xl mx-auto">
