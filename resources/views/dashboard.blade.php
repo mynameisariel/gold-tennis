@@ -28,9 +28,12 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="mt-4">
+                            <div class="mt-4 flex space-x-2">
                                 <a href="/lessons" class="bg-gold text-white font-bold rounded-lg p-3 hover:bg-green transition duration-200 inline-block">
                                     Book a Lesson
+                                </a>
+                                <a href="/packages" class="bg-gold text-white font-bold rounded-lg p-3 hover:bg-green transition duration-200 inline-block">
+                                    My Packages
                                 </a>
                             </div>
                         </div>

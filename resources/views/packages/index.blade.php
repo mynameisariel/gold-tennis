@@ -13,8 +13,6 @@
                 <thead class="bg-gray-50">
                     <tr>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Lesson</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Time</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                     </tr>
@@ -38,6 +36,13 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex gap-3">
                                 <a href="{{ route('packages.show', $userPackage) }}" class="text-blue-600 hover:text-blue-800">View</a>
+                                @if($userPackage->status !== 'cancelled')
+                                    <form action="{{ route('packages.cancel', $userPackage) }}" method="POST">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" class="text-red-600 hover:text-red-800">Cancel</button>
+                                    </form>
+                                @endif
                             </td>
                         </tr>
                     @empty

@@ -44,6 +44,16 @@ class PackagePurchaseController extends Controller
         // return 'this is the packages.show page';
     }
 
+    public function cancel(UserPackage $userPackage) {
+        if ($userPackage->user_id !== Auth::id() && !Auth::user()->is_admin) {
+            abort(403);
+        }
+
+        $userPackage->update(['status' => 'cancelled']);
+
+        return redirect()->route('packages.index')->with('success', 'Lesson package cancelled successfully');
+    }
+
     public function index() {
         $userPackages = Auth::user()->userPackages()->orderBy('created_at', 'desc')->get();
         return view('packages.index', compact('userPackages'));

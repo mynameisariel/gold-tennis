@@ -31,13 +31,7 @@
                                 Lesson
                             </th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Date & Time
-                            </th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Status
-                            </th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Booked On
                             </th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Actions
@@ -59,16 +53,6 @@
                                         <div class="text-sm text-gray-500">${{ number_format($package->lessonPackage->price, 2) }}</div>
                                     </div>
                                 </td>
-                                {{-- <td class="px-6 py-4 whitespace-nowrap">
-                                    <div>
-                                        <div class="text-sm font-medium text-gray-900">
-                                            {{ $package->timeSlot->date->format('M j, Y') }}
-                                        </div>
-                                        <div class="text-sm text-gray-500">
-                                            {{ $package->timeSlot->start_time->format('g:i A') }} - {{ $package->timeSlot->end_time->format('g:i A') }}
-                                        </div>
-                                    </div>
-                                </td> --}}
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     @if($package->status === 'confirmed')
                                         <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
@@ -84,12 +68,9 @@
                                         </span>
                                     @endif
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {{ $package->created_at->format('M j, Y g:i A') }}
-                                </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                     <div class="flex space-x-2">
-                                        {{-- @if($package->status === 'pending')
+                                        @if($package->status === 'pending')
                                             <form action="{{ route('admin.packages.confirm', $package) }}" method="POST" class="inline">
                                                 @csrf
                                                 @method('PATCH')
@@ -97,7 +78,7 @@
                                                     Confirm
                                                 </button>
                                             </form>
-                                        @endif --}}
+                                        @endif
                                         
                                         {{-- @if($package->status !== 'cancelled')
                                             <form action="{{ route('admin.packages.cancel', $package) }}" method="POST" class="inline">

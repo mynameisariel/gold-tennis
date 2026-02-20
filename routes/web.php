@@ -53,6 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/packages', [PackagePurchaseController::class, 'store'])->name('packages.store');
     Route::get('/packages', [PackagePurchaseController::class, 'index'])->name('packages.index');
     Route::get('/packages/{userPackage}', [PackagePurchaseController::class, 'show'])->name('packages.show');
+    Route::patch('/packages/{userPackage}/cancel', [PackagePurchaseController::class, 'cancel'])->name('packages.cancel'); 
     
     // Admin routes
     Route::prefix('admin')->name('admin.')->group(function () {
@@ -70,6 +71,7 @@ Route::middleware('auth')->group(function () {
         Route::patch('/bookings/{booking}/confirm', [AdminController::class, 'confirmBooking'])->name('bookings.confirm');
         Route::patch('/bookings/{booking}/cancel', [AdminController::class, 'cancelBooking'])->name('bookings.cancel');
         Route::get('/packages', [AdminController::class, 'packages'])->name('packages.index');
+        Route::patch('/packages/{package}/confirm', [AdminController::class, 'confirmPackage'])->name('packages.confirm');
     });
 });
 

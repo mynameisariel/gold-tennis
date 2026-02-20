@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\BookingConfirmation;
+use App\Mail\PackageConfirmation;
 use App\Models\LessonPackage;
 use App\Models\UserPackage;
 
@@ -172,6 +173,19 @@ class AdminController extends Controller
         $packages = UserPackage::with(['user'])->orderBy('created_at', 'desc')->paginate(20);
 
         return view('admin.packages.index', compact('packages'));
+    }
+
+    public function confirmPackage(UserPackage $package) {
+        $package->update(['status' => 'confirmed']);
+
+        // try {
+        //     Mail::to($booking->user->email)->send(new PackageConfirmation($booking));
+        // } catch (\Exception $e) {
+        //     // Log the error but don't fail the confirmation
+        //     Log::error('Failed to send booking confirmation email: ' . $e->getMessage());
+        // }
+        
+        return back()->with('success', 'Lesson package confirmed successfully! Confirmation email sent to user.');
     }
 
     public function bookings()

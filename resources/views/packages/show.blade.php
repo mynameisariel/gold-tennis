@@ -22,6 +22,12 @@
                 </span>
             </div>
 
+            <div class="mb-4">
+                <div class="text-sm text-gray-500">Price</div>
+                    ${{ $userPackage->lessonPackage->price }}
+                </span>
+            </div>
+
             @if($userPackage->notes)
                 <div class="mb-6">
                     <div class="text-sm text-gray-500">Notes</div>

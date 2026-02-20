@@ -59,9 +59,12 @@
                                         </button>
                                     </form>
                                 @else
+                                    <x-primary-button href="{{ route('login') }}">
+                                        LOG IN
+                                    </x-primary-button>    
                                     <x-primary-button href="{{ route('register') }}">
                                         BOOK NOW
-                                    </x-primary-button>
+                                    </x-primary-button>         
                                 @endauth
                             </div>
                         </nav>
