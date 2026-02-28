@@ -75,7 +75,7 @@
                     class="inline-block bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
                         View Lessons
                     </a>
-                    <a href="{{ route('admin.packages.index') }}" 
+                    <a href="{{ route('admin.lesson-packages.index') }}" 
                     class="inline-block bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
                         View Packages
                     </a>
@@ -84,12 +84,18 @@
             </div>
 
             <div class="bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-lg font-semibold mb-4">Manage Bookings</h3>
-                <p class="text-gray-600 mb-4">View and manage all customer bookings and confirmations.</p>
-                <a href="{{ route('admin.bookings.index') }}" 
-                   class="inline-block bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
-                    View Bookings
-                </a>
+                <h3 class="text-lg font-semibold mb-4">Manage Bookings & User Packages</h3>
+                <p class="text-gray-600 mb-4">View and manage all customer bookings and package purchases.</p>
+                <div class="flex justify-left space-x-2">
+                    <a href="{{ route('admin.bookings.index') }}" 
+                    class="inline-block bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+                        View Bookings
+                    </a>
+                    <a href="{{ route('admin.packages.index') }}" 
+                        class="inline-block bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+                        View User Packages
+                    </a>
+                </div>
             </div>
 
             <div class="bg-white rounded-lg shadow-lg p-6">

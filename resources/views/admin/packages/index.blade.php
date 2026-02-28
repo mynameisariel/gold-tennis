@@ -28,7 +28,7 @@
                                 Customer
                             </th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Lesson
+                                Package
                             </th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Status
@@ -78,18 +78,10 @@
                                                     Confirm
                                                 </button>
                                             </form>
+                                            
+                                        @else
+                                            No more actions
                                         @endif
-                                        
-                                        {{-- @if($package->status !== 'cancelled')
-                                            <form action="{{ route('admin.packages.cancel', $package) }}" method="POST" class="inline">
-                                                @csrf
-                                                @method('PATCH')
-                                                <button type="submit" class="text-red-600 hover:text-red-900" 
-                                                        onclick="return confirm('Are you sure you want to cancel this package?')">
-                                                    Cancel
-                                                </button>
-                                            </form>
-                                        @endif --}}
                                         
                                         @if($package->notes)
                                             <button onclick="showNotes('{{ $package->notes }}')" 

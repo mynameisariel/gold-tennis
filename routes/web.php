@@ -58,18 +58,26 @@ Route::middleware('auth')->group(function () {
     // Admin routes
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
+        // lessons
         Route::get('/lessons', [AdminController::class, 'lessons'])->name('lessons.index');
         Route::get('/lessons/create', [AdminController::class, 'createLesson'])->name('lessons.create');
         Route::post('/lessons', [AdminController::class, 'storeLesson'])->name('lessons.store');
+        // lesson packages
+        Route::get('/lesson-packages', [AdminController::class, 'lessonPackages'])->name('lesson-packages.index');
+        Route::get('/lesson-packages/create', [AdminController::class, 'createLessonPackage'])->name('lesson-packages.create');
+
+        // timeslots
         Route::get('/timeslots', [AdminController::class, 'timeSlotsIndex'])->name('time-slots.index');
         Route::get('/lessons/{lesson}/time-slots', [AdminController::class, 'timeSlots'])->name('lessons.time-slots');
         Route::get('/lessons/{lesson}/time-slots/create', [AdminController::class, 'createTimeSlot'])->name('time-slots.create');
         Route::post('/lessons/{lesson}/time-slots', [AdminController::class, 'storeTimeSlot'])->name('time-slots.store');
         Route::patch('/time-slots/{timeSlot}/toggle', [AdminController::class, 'toggleTimeSlot'])->name('time-slots.toggle');
         Route::delete('/time-slots/{timeSlot}', [AdminController::class, 'destroyTimeSlot'])->name('time-slots.destroy');
+        // bookings
         Route::get('/bookings', [AdminController::class, 'bookings'])->name('bookings.index');
         Route::patch('/bookings/{booking}/confirm', [AdminController::class, 'confirmBooking'])->name('bookings.confirm');
         Route::patch('/bookings/{booking}/cancel', [AdminController::class, 'cancelBooking'])->name('bookings.cancel');
+        // purchased user packages
         Route::get('/packages', [AdminController::class, 'packages'])->name('packages.index');
         Route::patch('/packages/{package}/confirm', [AdminController::class, 'confirmPackage'])->name('packages.confirm');
     });

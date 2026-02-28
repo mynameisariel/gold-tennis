@@ -49,7 +49,7 @@ class AdminController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'duration_minutes' => 'required|integer|min:15|max:480',
+            'duration_minutes' => 'required|integer|min:30|max:480',
             'price' => 'required|numeric|min:0',
             'image' => 'nullable|string'
         ]);
@@ -58,6 +58,33 @@ class AdminController extends Controller
 
         return redirect()->route('admin.lessons.index')
             ->with('success', 'Lesson created successfully!');
+    }
+
+    public function lessonPackages()
+    {
+        $lessonPackages = LessonPackage::get();
+        return view('admin.lesson-packages.index', compact('lessonPackages'));
+    }
+
+    public function createLessonPackage()
+    {
+        return view('admin.lesson-packages.create');
+    }
+
+    public function storeLessonPackage(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'number_of_lessons' => 'required|integer|min:2|max:50',
+            'price' => 'required|numeric|min:0',
+            'image' => 'nullable|string',
+        ]);
+
+        LessonPackage::create($request->all());
+
+        return redirect()->route('admin.lesson-packages.index')
+            ->with('success', 'Lesson package created successfully!');
     }
 
     public function timeSlots(Lesson $lesson)
