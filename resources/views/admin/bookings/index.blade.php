@@ -1,11 +1,13 @@
 <x-layout>
     <div class="w-full">
-        <div class="flex justify-between items-center mb-8">
-            <h1 class="text-3xl font-bold">Manage Bookings</h1>
+        <div class="text-right mb-4">
             <a href="{{ route('admin.dashboard') }}" 
                class="text-gray-600 hover:text-gray-900">
                 ← Back to Dashboard
             </a>
+        </div>
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold">Manage Bookings</h1>
         </div>
 
         @if(session('success'))
