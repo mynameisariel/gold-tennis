@@ -72,7 +72,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/lesson-packages/create', [AdminController::class, 'createLessonPackage'])->name('lesson-packages.create');
         Route::get('/lesson-packages/{lessonPackage}/edit', [AdminController::class, 'editLessonPackage'])->name('lesson-packages.edit');
         Route::patch('lesson-packages/{lessonPackage}', [AdminController::class, 'updateLessonPackage'])->name('lesson-packages.update');
-        Route::delete('lesson-packages/{lessonPackage', [AdminController::class, 'destroyLessonPackage'])->name('lesson-packages.destroy');
+        Route::delete('lesson-packages/{lessonPackage}', [AdminController::class, 'destroyLessonPackage'])->name('lesson-packages.destroy');
         Route::post('/lesson-packages', [AdminController::class, 'storeLessonPackage'])->name('lesson-packages.store');
 
         // timeslots

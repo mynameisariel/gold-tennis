@@ -111,7 +111,7 @@ class AdminController extends Controller
             'image' => 'nullable|string'
         ]);
         
-        LessonPackage::create($request->all());
+        $lessonPackage->update($request->all());
 
         return redirect()->route('admin.lesson-packages.index')
             ->with('success', 'Lesson package updated successfully!');

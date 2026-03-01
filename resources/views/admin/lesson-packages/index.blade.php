@@ -34,9 +34,6 @@
                             Price
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Lesson Type
-                        </th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Status
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -64,9 +61,6 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                 ${{ number_format($lessonPackage->price, 2) }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                {{ $lessonPackage->type_of_lesson }}
-                            </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full {{ $lessonPackage->is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
                                     {{ $lessonPackage->is_active ? 'Active' : 'Inactive' }}
@@ -78,6 +72,8 @@
                                        class="text-green-600 hover:text-green-900">Time Slots</a> --}}
                                     <a href="{{ route('lesson-packages.show', $lessonPackage) }}" 
                                        class="text-blue-600 hover:text-blue-900">View</a>
+                                    <a href="{{ route('admin.lesson-packages.edit', $lessonPackage) }}" 
+                                       class="text-blue-600 hover:text-blue-900">Edit</a>
                                 </div>
                             </td>
                         </tr>
