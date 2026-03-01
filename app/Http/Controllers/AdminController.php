@@ -33,6 +33,7 @@ class AdminController extends Controller
         return view('admin.dashboard', compact('totalLessons', 'totalBookings', 'pendingBookings', 'todayBookings'));
     }
 
+    // LESSONS =======================================
     public function lessons()
     {
         $lessons = Lesson::withCount('timeSlots')->get();
@@ -42,6 +43,25 @@ class AdminController extends Controller
     public function createLesson()
     {
         return view('admin.lessons.create');
+    }
+
+    public function editLesson(Lesson $lesson) {
+        return view('admin.lessons.edit', compact('lesson'));
+    }
+
+    public function updateLesson(Lesson $lesson, Request $request) {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'duration_minutes' => 'required|integer|min:30|max:480',
+            'price' => 'required|numeric|min:0',
+            'image' => 'nullable|string'
+        ]);
+
+        $lesson->update($request->all());
+
+        return redirect()->route('admin.lessons.index')
+            ->with('success', 'Lesson edited successfully!');
     }
 
     public function storeLesson(Request $request)
@@ -60,6 +80,13 @@ class AdminController extends Controller
             ->with('success', 'Lesson created successfully!');
     }
 
+    public function destroyLesson(Lesson $lesson) {
+        $lesson->delete();
+
+        return redirect()->route('admin.lessons.index')->with('success', 'Lesson deleted successfully.');;
+    }
+
+    // LESSON PACKAGES ============================
     public function lessonPackages()
     {
         $lessonPackages = LessonPackage::get();
