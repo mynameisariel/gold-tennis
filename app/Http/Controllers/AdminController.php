@@ -61,7 +61,7 @@ class AdminController extends Controller
         $lesson->update($request->all());
 
         return redirect()->route('admin.lessons.index')
-            ->with('success', 'Lesson edited successfully!');
+            ->with('success', 'Lesson updated successfully!');
     }
 
     public function storeLesson(Request $request)
@@ -83,7 +83,7 @@ class AdminController extends Controller
     public function destroyLesson(Lesson $lesson) {
         $lesson->delete();
 
-        return redirect()->route('admin.lessons.index')->with('success', 'Lesson deleted successfully.');;
+        return redirect()->route('admin.lessons.index')->with('success', 'Lesson deleted successfully.');
     }
 
     // LESSON PACKAGES ============================
@@ -96,6 +96,25 @@ class AdminController extends Controller
     public function createLessonPackage()
     {
         return view('admin.lesson-packages.create');
+    }
+
+    public function editLessonPackage(LessonPackage $lessonPackage) {
+        return view('admin.lesson-packages.edit', compact('lessonPackage'));
+    }
+
+    public function updateLessonPackage(LessonPackage $lessonPackage, Request $request) {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'number_of_lessons' => 'required|integer|min:2|max:50',
+            'price' => 'required|numeric|min:0',
+            'image' => 'nullable|string'
+        ]);
+        
+        LessonPackage::create($request->all());
+
+        return redirect()->route('admin.lesson-packages.index')
+            ->with('success', 'Lesson package updated successfully!');
     }
 
     public function storeLessonPackage(Request $request)
@@ -114,6 +133,14 @@ class AdminController extends Controller
             ->with('success', 'Lesson package created successfully!');
     }
 
+    public function destroyLessonPackage(LessonPackage $lessonPackage) {
+        $lessonPackage->delete();
+
+        return redirect()->route('admin.lesson-packages.index')
+            ->with('success', 'Lesson package deleted successfully.');
+    }
+
+    // TIME SLOTS =======================================
     public function timeSlots(Lesson $lesson)
     {
         $timeSlots = $lesson->timeSlots()->orderBy('date')->orderBy('start_time')->get();
@@ -223,6 +250,7 @@ class AdminController extends Controller
         return back()->with('success', 'Time slot deleted successfully!');
     }
 
+    // USER PACKAGES ============================
     public function packages() {
         $packages = UserPackage::with(['user'])->orderBy('created_at', 'desc')->paginate(20);
 
@@ -242,6 +270,7 @@ class AdminController extends Controller
         return back()->with('success', 'Lesson package confirmed successfully! Confirmation email sent to user.');
     }
 
+    // BOOKINGS ============================
     public function bookings()
     {
         $bookings = Booking::with(['user', 'timeSlot.lesson'])

@@ -94,7 +94,7 @@
             </div>
         </form>
     </div>
-    <form action="{{ route('admin.lessons.delete', $lesson) }}" method="POST" id="delete-form" class="hidden">
+    <form action="{{ route('admin.lessons.destroy', $lesson) }}" method="POST" id="delete-form" class="hidden">
         @csrf
         @method('DELETE')
     </form>

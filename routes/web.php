@@ -64,12 +64,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/lessons/create', [AdminController::class, 'createLesson'])->name('lessons.create');
         Route::get('/lessons/{lesson}/edit', [AdminController::class, 'editLesson'])->name('lessons.edit');
         Route::patch('/lessons/{lesson}', [AdminController::class, 'updateLesson'])->name('lessons.update');
-        Route::delete('/lessons/{lesson}', [AdminController::class, 'destroyLesson'])->name('lessons.delete');
+        Route::delete('/lessons/{lesson}', [AdminController::class, 'destroyLesson'])->name('lessons.destroy');
         Route::post('/lessons', [AdminController::class, 'storeLesson'])->name('lessons.store');
 
         // lesson packages
         Route::get('/lesson-packages', [AdminController::class, 'lessonPackages'])->name('lesson-packages.index');
         Route::get('/lesson-packages/create', [AdminController::class, 'createLessonPackage'])->name('lesson-packages.create');
+        Route::get('/lesson-packages/{lessonPackage}/edit', [AdminController::class, 'editLessonPackage'])->name('lesson-packages.edit');
+        Route::patch('lesson-packages/{lessonPackage}', [AdminController::class, 'updateLessonPackage'])->name('lesson-packages.update');
+        Route::delete('lesson-packages/{lessonPackage', [AdminController::class, 'destroyLessonPackage'])->name('lesson-packages.destroy');
+        Route::post('/lesson-packages', [AdminController::class, 'storeLessonPackage'])->name('lesson-packages.store');
 
         // timeslots
         Route::get('/timeslots', [AdminController::class, 'timeSlotsIndex'])->name('time-slots.index');
