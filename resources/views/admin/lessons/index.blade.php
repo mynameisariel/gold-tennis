@@ -6,10 +6,9 @@
                 <a href="{{ route('admin.dashboard') }}" class="text-gray-600 hover:text-gray-900">
                     ← Back to Dashboard
                 </a>
-                <a href="{{ route('admin.lessons.create') }}"
-                    class="bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
-                    Add New Lesson
-                </a>
+                <x-dashboard-button href="{{ route('admin.lessons.create') }}">
+                        Add New Lesson
+                </x-dashboard-button>
             </div>
         </div>
 

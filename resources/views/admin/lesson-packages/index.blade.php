@@ -7,10 +7,9 @@
                 class="text-gray-600 hover:text-gray-900">
                     ← Back to Dashboard
                 </a>
-                <a href="{{ route('admin.lesson-packages.create') }}" 
-                class="bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+                <x-dashboard-button href="{{ route('admin.lesson-packages.create') }}">
                     Add New Lesson Package
-                </a>
+                </x-dashboard-button>
             </div>
         </div>
 

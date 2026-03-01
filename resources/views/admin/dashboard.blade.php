@@ -24,7 +24,7 @@
 
             <div class="bg-white rounded-lg shadow-lg p-6">
                 <div class="flex items-center">
-                    <div class="p-3 rounded-full bg-green-100 text-green-600">
+                    <div class="p-3 rounded-full bg-emerald-100 text-green-600">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                         </svg>
@@ -71,14 +71,12 @@
                 <h3 class="text-lg font-semibold mb-4">Manage Lessons & Packages</h3>
                 <p class="text-gray-600 mb-4">Create and manage tennis lesson types, packages, and pricing.</p>
                 <div class="flex justify-left space-x-4">
-                    <a href="{{ route('admin.lessons.index') }}" 
-                    class="inline-block bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+                    <x-dashboard-button href="{{ route('admin.lessons.index') }}">
                         View Lessons
-                    </a>
-                    <a href="{{ route('admin.lesson-packages.index') }}" 
-                    class="inline-block bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+                    </x-dashboard-button>
+                    <x-dashboard-button href="{{ route('admin.lesson-packages.index') }}">
                         View Packages
-                    </a>
+                    </x-dashboard-button>
                 </div>
                 
             </div>
@@ -87,24 +85,21 @@
                 <h3 class="text-lg font-semibold mb-4">Manage Bookings & User Packages</h3>
                 <p class="text-gray-600 mb-4">View and manage all customer bookings and package purchases.</p>
                 <div class="flex justify-left space-x-2">
-                    <a href="{{ route('admin.bookings.index') }}" 
-                    class="inline-block bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+                    <x-dashboard-button href="{{ route('admin.bookings.index') }}">
                         View Bookings
-                    </a>
-                    <a href="{{ route('admin.packages.index') }}" 
-                        class="inline-block bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+                    </x-dashboard-button>
+                    <x-dashboard-button href="{{ route('admin.packages.index') }}">
                         View Purchases
-                    </a>
+                    </x-dashboard-button>
                 </div>
             </div>
 
             <div class="bg-white rounded-lg shadow-lg p-6">
                 <h3 class="text-lg font-semibold mb-4">Add Time Slots</h3>
                 <p class="text-gray-600 mb-4">Add available time slots for lessons and manage scheduling.</p>
-                <a href="{{ route('admin.time-slots.index') }}" 
-                   class="inline-block bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
-                    Manage Slots
-                </a>
+                <x-dashboard-button href="{{ route('admin.time-slots.index') }}">
+                    View Lessons
+                </x-dashboard-button>
             </div>
         </div>
     </div>

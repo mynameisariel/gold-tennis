@@ -1,12 +1,18 @@
 <x-layout>
+    <div class="text-right mb-4">
+        <a href="{{ route('admin.lessons.index') }}" 
+            class="text-gray-600 hover:text-gray-900">
+            ← Back to Lessons
+        </a>
+    </div>
     <div class="flex justify-between items-center mb-5">
         <a href="{{ route('admin.lessons.time-slots', $prevLesson) }}" 
             class="bg-gold px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
-            ◀   Previous Lesson
+            Previous Lesson
         </a>
         <a href="{{ route('admin.lessons.time-slots', $nextLesson) }}" 
             class="bg-gold px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
-            Next Lesson     ▶
+            Next Lesson
         </a>
     </div>
     <div class="max-w-7xl mx-auto">
@@ -19,10 +25,6 @@
                 <a href="{{ route('admin.time-slots.create', $lesson) }}" 
                    class="bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
                     Add Time Slots
-                </a>
-                <a href="{{ route('admin.lessons.index') }}" 
-                   class="text-gray-600 hover:text-gray-900">
-                    ← Back to Lessons
                 </a>
             </div>
         </div>

@@ -16,7 +16,9 @@ export default {
             colors: {
                 page: '#f8dcbf',
                 green: '#003d0c',
+                darkgreen: '#002607',
                 gold: '#ffa400',
+                darkgold: '#d18800'
             }
         },
     },

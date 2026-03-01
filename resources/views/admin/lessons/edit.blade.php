@@ -82,15 +82,14 @@
                     class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition duration-200">
                     Cancel
                 </a>
-                <button form="delete-form" type="submit" class="px-4 py-2 bg-red-600 text-white rounded-lg"
+                <button form="delete-form" type="submit" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition duration-200"
                     onclick="return confirm('Are you sure you want to delete this lesson')">
                     Delete Lesson
                 </button>
 
-                <button type="submit" form="lesson-update-form"
-                    class="px-4 py-2 bg-green text-white rounded-lg hover:bg-green-700 transition duration-200">
+                <x-action-button>
                     Update Lesson
-                </button>
+                </x-action-button>
             </div>
         </form>
     </div>
