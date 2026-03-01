@@ -72,7 +72,7 @@
                                     <a href="{{ route('lesson-packages.show', $lessonPackage) }}" 
                                        class="text-blue-600 hover:text-blue-900">View</a>
                                     <a href="{{ route('admin.lesson-packages.edit', $lessonPackage) }}" 
-                                       class="text-blue-600 hover:text-blue-900">Edit</a>
+                                       class="text-gold hover:text-darkgold">Edit</a>
                                 </div>
                             </td>
                         </tr>

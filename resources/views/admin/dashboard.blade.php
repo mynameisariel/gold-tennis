@@ -97,9 +97,11 @@
             <div class="bg-white rounded-lg shadow-lg p-6">
                 <h3 class="text-lg font-semibold mb-4">Add Time Slots</h3>
                 <p class="text-gray-600 mb-4">Add available time slots for lessons and manage scheduling.</p>
-                <x-dashboard-button href="{{ route('admin.time-slots.index') }}">
-                    View Lessons
-                </x-dashboard-button>
+                <div class="flex">
+                    <x-dashboard-button href="{{ route('admin.time-slots.index') }}">
+                        View Lessons
+                    </x-dashboard-button>
+                </div>        
             </div>
         </div>
     </div>

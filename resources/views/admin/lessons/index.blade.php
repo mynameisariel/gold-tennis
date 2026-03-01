@@ -80,7 +80,7 @@
                                     <a href="{{ route('lessons.show', $lesson) }}"
                                         class="text-blue-600 hover:text-blue-900">View</a>
                                     <a href="{{ route('admin.lessons.edit', $lesson) }}"
-                                        class="hover:text-blue-900">Edit Lesson</a>
+                                        class="text-gold hover:text-darkgold">Edit</a>
                                 </div>
                             </td>
                         </tr>

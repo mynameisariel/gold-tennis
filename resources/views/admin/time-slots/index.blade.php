@@ -22,10 +22,9 @@
                 <p class="text-gray-600 mt-2">Manage available time slots for this lesson</p>
             </div>
             <div class="justify-between items-center space-x-4">
-                <a href="{{ route('admin.time-slots.create', $lesson) }}" 
-                   class="bg-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+                <x-dashboard-button href="{{ route('admin.time-slots.create', $lesson) }}">
                     Add Time Slots
-                </a>
+                </x-dashboard-button>
             </div>
         </div>
 

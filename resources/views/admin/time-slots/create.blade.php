@@ -73,10 +73,9 @@
                        class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition duration-200">
                         Cancel
                     </a>
-                    <button type="submit" 
-                            class="px-4 py-2 bg-green text-white rounded-lg hover:bg-green-700 transition duration-200">
-                        Create Time Slots
-                    </button>
+                    <x-action-button>
+                        Create Time Slot
+                    </x-action-button>
                 </div>
             </form>
         </div>
