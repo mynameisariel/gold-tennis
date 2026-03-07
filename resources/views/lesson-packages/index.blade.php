@@ -1,6 +1,6 @@
 <x-layout>
     <div class="max-w-5xl mx-auto">
-        <h1 class="text-2xl font-bold mb-6">My Packages</h1>
+        <x-heading>Lesson Packages</x-heading>
 
         @if(session('success'))
             <div class="mb-6 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
@@ -8,9 +8,9 @@
             </div>
         @endif
 
-        <div class="bg-white rounded-lg shadow overflow-hidden">
+        <div class="mt-12 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             @foreach($lessonPackages as $lessonPackage)
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden my-4">
                     <img src="{{ $lessonPackage->image }}" alt="{{ $lessonPackage->title }}" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h2 class="text-xl font-bold mb-2">{{ $lessonPackage->title }}</h2>
@@ -20,7 +20,7 @@
                             <span class="text-lg font-bold text-green">${{ number_format($lessonPackage->price, 2) }}</span>
                         </div>
                         <a href="{{ route('lesson-packages.show', $lessonPackage->id) }}" 
-                           class="block w-full bg-green text-white text-center py-2 px-4 rounded-lg hover:bg-green-700 transition duration-200">
+                           class="block w-full bg-green text-white text-center py-2 px-4 rounded-lg hover:bg-black transition duration-200">
                             Purchase Now
                         </a>
                     </div>
