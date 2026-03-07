@@ -2,7 +2,10 @@
     <div class="max-w-6xl mx-auto">
         <x-heading>Tennis Lessons</x-heading>
 
-        <x-primary-button href="{{ route('lesson-packages.index') }}">Save up to 30% by purchasing a LESSON PACKAGE</x-primary-button>
+        <div class="flex justify-center mb-4">
+            <a href="{{ route('lesson-packages.index') }}" class="w-full bg-green text-white p-4 text-lg font-bold text-center rounded-md hover:bg-black transition duration-200">Save up to 30% by purchasing a LESSON PACKAGE</a>
+        </div>
+        
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($lessons as $lesson)
@@ -16,9 +19,10 @@
                             <span class="text-lg font-bold text-green">${{ number_format($lesson->price, 2) }}</span>
                         </div>
                         <a href="{{ route('lessons.show', $lesson) }}" 
-                           class="block w-full bg-green text-white text-center py-2 px-4 rounded-lg hover:bg-green-700 transition duration-200">
+                           class="block w-full bg-green text-white text-center py-2 px-4 rounded-lg hover:bg-black transition duration-200">
                             Book Now
                         </a>
+                        {{-- <x-dashboard-button href="{{ route('lessons.show', $lesson) }}" class="w-full">Book Now</x-dashboard-button> --}}
                     </div>
                 </div>
             @endforeach
