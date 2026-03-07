@@ -32,6 +32,9 @@
                                 <a href="/lessons" class="bg-gold text-white font-bold rounded-lg p-3 hover:bg-green transition duration-200 inline-block">
                                     Book a Lesson
                                 </a>
+                                <a href="/lesson-packages" class="bg-gold text-white font-bold rounded-lg p-3 hover:bg-green transition duration-200 inline-block">
+                                    Purchase a Lesson Package
+                                </a>
                                 <a href="/packages" class="bg-gold text-white font-bold rounded-lg p-3 hover:bg-green transition duration-200 inline-block">
                                     My Packages
                                 </a>
