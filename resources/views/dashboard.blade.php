@@ -43,7 +43,8 @@
                     </div>
                 </div>
                 <div>
-                    <img src="https://placehold.co/400" alt="" class="w-full h-auto max-w-sm lg:max-w-md mx-auto">
+                    {{-- <img src="https://placehold.co/400" alt="" class="w-full h-auto max-w-sm lg:max-w-md mx-auto"> --}}
+                    <img src="dashboard.jpg" alt="dashboard-img" class="w-full h-auto max-w-sm lg:max-w-md mx-auto">
                 </div>
             </div>
         </main>
